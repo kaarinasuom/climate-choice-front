@@ -1,4 +1,4 @@
-const url = 'http://localhost:8080/';
+const url = '/';
 
 export function fetchall(callback) {
     fetch(url + "tasks", {accept: 'application/json'})
