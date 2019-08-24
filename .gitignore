@@ -2,10 +2,7 @@
 
 # dependencies
 /node_modules
-<<<<<<< HEAD
-=======
 package-lock.json
->>>>>>> a8ce3200a4335a039b102794d5da72c11fac8147
 
 # testing
 /coverage
