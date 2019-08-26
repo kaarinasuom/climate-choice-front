@@ -1,7 +1,8 @@
 const url = 'https://climate-choice.herokuapp.com/';
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
 export function fetchall(callback) {
-    fetch(url + "tasks", {accept: 'application/json'})
+    fetch(proxyurl + url + "tasks", {accept: 'application/json'})
         .then(function(response) {
             response.json().then(function(json) {
                 if (response.status >= 500)
@@ -13,7 +14,7 @@ export function fetchall(callback) {
 }
 
 export function fetchallchoices(callback) {
-    fetch(url + "relations", {accept: 'application/json'})
+    fetch(proxyurl + url + "relations", {accept: 'application/json'})
         .then(function(response) {
             response.json().then(function(json) {
                 if (response.status >= 500)
@@ -27,7 +28,7 @@ export function fetchallchoices(callback) {
 
 export function createUser(id) {
     var user = '{"uid": "' + id + '"}';
-    fetch(url + "users",  {
+    fetch(proxyurl + url + "users",  {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: user}
@@ -37,7 +38,7 @@ export function createUser(id) {
 
 export function createRelation(data) {
     var relation = '{"choice": "' + data.choice + '", "user": {"uid": "' + data.user_id + '"}, "task": {"id": ' + data.task_id + '}}';
-    fetch(url + "relations",  {
+    fetch(proxyurl + url + "relations",  {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: relation}
@@ -46,7 +47,7 @@ export function createRelation(data) {
 
 
 export function fetchAllRelations(callback) {
-    fetch(url + "relations", {accept: 'application/json'})
+    fetch(proxyurl + url + "relations", {accept: 'application/json'})
         .then(function(response) {
             response.json().then(function(json) {
                 if (response.status >= 500)
@@ -58,7 +59,7 @@ export function fetchAllRelations(callback) {
 }
 
 export function fetchTask(id, callback) {
-    fetch(url + "tasks/" + id, {accept: 'application/json'})
+    fetch(proxyurl + url + "tasks/" + id, {accept: 'application/json'})
         .then(function(response) {
             response.json().then(function(json) {
                 if (response.status >= 500)
@@ -70,7 +71,7 @@ export function fetchTask(id, callback) {
 }
 
 export function fetchTasksIds(callback) {
-    fetch(url + "tasks/allids" , {accept: 'application/json'})
+    fetch(proxyurl + url + "tasks/allids" , {accept: 'application/json'})
         .then(function(response) {
             response.json().then(function(json) {
                 if (response.status >= 500)
@@ -82,7 +83,7 @@ export function fetchTasksIds(callback) {
 }
 
 export function changeChoice(id, data) {
-    return fetch(url + 'relations/' + id, {
+    return fetch(proxyurl + url + 'relations/' + id, {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: {'Content-Type': 'application/json'}
@@ -92,7 +93,7 @@ export function changeChoice(id, data) {
 }
 
 export function deleteFromRelations(id) {
-    return fetch(url + 'relations/' + id, {
+    return fetch(proxyurl + url + 'relations/' + id, {
         method: 'DELETE'
     }).catch(err => err);
 }
