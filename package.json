@@ -23,11 +23,9 @@
     "styled-components": "^3.4.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "webpack --config ./config/webpack.config.js --progress --colors",
-    "postinstall": "npm run build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "postinstall": "webpack -p"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
