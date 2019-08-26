@@ -1,4 +1,4 @@
-const url = '/';
+const url = 'https://climate-choice.herokuapp.com/';
 
 export function fetchall(callback) {
     fetch(url + "tasks", {accept: 'application/json'})
